@@ -48,5 +48,21 @@ if($now > '05:00' AND $now < '09:00'){
 // 3. "Different greetings according to age" Exercise
 
 if (isset($_GET["age"])){
-
+	if($_GET["age"] < 12) {
+		echo "Hello kiddo !";
+	} else if( 12 < $_GET["age"] AND $_GET["age"] < 18 ){
+		echo "Hello Teenager !";
+	} else if (18 < $_GET["age"] AND $_GET["age"] < 115) {
+		echo "Hello adult !";
+	} else if( 115 < $_GET["age"]){
+		echo "Wow! Still alive ? Are you a robot, like me ? Can I hug you ?";
+	}
 }
+
+//Form incomplète
+?>
+<form method="get" action="">
+	<label for="age">Please type your age :</label>
+	<input type="text" name="age">
+	<input type="submit" name="submit" value="Greet me now">
+</form>
