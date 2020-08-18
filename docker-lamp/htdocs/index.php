@@ -137,3 +137,33 @@ if(isset($name) AND isset($gender) AND isset($age)){
 
 	<input type="submit" name="submit" value="Greet me now">
 </form>
+
+<?php
+//Exo 8 : School Sucks exercice
+$note = $_GET['note'];
+
+if(isset($note)){
+	if($note <= 4){
+		echo "This work is really bad. What a dumb kid! ";
+	} else if ( 5 <= $note AND $note <= 9){
+		echo "This is not sufficient. More studying is required.";
+	} else if ($note == 10){
+		echo  "barely enough!";
+	} else if (11 <= $note AND $note <= 14){
+		echo "Not bad!";
+	} else if (15 <= $note AND $note <= 18){
+		echo "Bravo, bravissimo!";
+	} else if (19 <= $note AND $note <= 20){
+		echo "Too good to be true : confront the cheater!";
+	}
+}
+
+?>
+
+<form method="get" action ="">
+	<label for="note">Enter your note :</label>
+	<input type="text" name="note"><br />
+
+	<input type="submit" name="submit" value="Greet me now">
+</form>
+
