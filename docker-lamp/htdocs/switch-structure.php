@@ -3,7 +3,7 @@
 //Exo 9 : School Sucks exercice with switch
 $note = $_GET['note'];
 
-switch $note {
+switch ($note) {
     case 4: 
            echo "This work is really bad. What a dumb kid! ";
             break;
