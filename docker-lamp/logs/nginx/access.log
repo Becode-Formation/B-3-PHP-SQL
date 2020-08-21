@@ -635,3 +635,5 @@
 172.26.0.1 - - [20/Aug/2020:14:19:51 +0000] "GET /loop.php HTTP/1.1" 200 2231 "-" "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:79.0) Gecko/20100101 Firefox/79.0"
 172.26.0.1 - - [20/Aug/2020:14:20:02 +0000] "GET /loop.php HTTP/1.1" 200 2208 "-" "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:79.0) Gecko/20100101 Firefox/79.0"
 172.26.0.1 - - [20/Aug/2020:14:20:10 +0000] "GET /loop.php HTTP/1.1" 200 2251 "-" "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:79.0) Gecko/20100101 Firefox/79.0"
+172.26.0.1 - - [21/Aug/2020:07:46:45 +0000] "GET / HTTP/1.1" 200 1386 "-" "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:79.0) Gecko/20100101 Firefox/79.0"
+172.26.0.1 - - [21/Aug/2020:07:46:53 +0000] "GET /function.php HTTP/1.1" 200 41 "-" "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:79.0) Gecko/20100101 Firefox/79.0"
