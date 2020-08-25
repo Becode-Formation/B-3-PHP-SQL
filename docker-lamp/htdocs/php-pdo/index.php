@@ -39,9 +39,10 @@ $newHaut = $_POST['haut'];
 $newBas= $_POST['bas'];
 
 if(isset($newBas, $newHaut, $newVille)){
-    $Insert = "INSERT INTO Météo (ville,haut,bas) VALUES($newVille, $newHaut, $newBas)";
-     $bdd->exec($insert);
+    $Insert = 'INSERT INTO Météo (ville,haut,bas) VALUES ("'.$newVille.'", '.$newHaut.','.$newBas.')';
+     $bdd->exec($Insert);
         echo "Envoyé !";
+        header("Refresh:0");
 }
 ?>
 
