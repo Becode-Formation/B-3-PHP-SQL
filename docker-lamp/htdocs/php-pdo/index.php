@@ -10,6 +10,7 @@ $resultat = 'SELECT * FROM Météo';
 $donnees = $bdd->query($resultat);
 
 echo '
+<form action="" method="post">
 <table>
 <tr>
     <th>Ville</th>
@@ -17,10 +18,21 @@ echo '
     <th>bas</th>
 </tr>';
 while($row = $donnees->fetch()) {
-    echo  '<tr><td>'.$row["ville"].'</td><td>'.$row["haut"].'</td><td>'.$row["bas"].'</td></tr>';
+    echo  '
+    <tr>
+        <td>'.$row["ville"].'</td>
+        <td>'.$row["haut"].'</td>
+        <td>'.$row["bas"].'</td>
+        <td><input type="button" name="delet" value="X"></td>
+    </tr>';
 }
-echo '</table>';
+
+echo '</form></table>';
 $donnees->closeCursor();
+
+if($_GET['delet']){
+    echo" click";
+}
 ?>
 
 <form method="POST">
