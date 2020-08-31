@@ -12,28 +12,23 @@ try {
 }catch(Exception $err){
 	die("Erreur : " .$err->getMessage());
 }
-$id = $_GET['id'];
-$name = $_POST['name'];
+
+$id = $rando['id'];
+$rName = $_POST['name'];
 $difficulty = $_POST["difficulty"];
 $dist = $_POST['distance'];
 $dur = $_POST['duration'];
 $height = $_POST['height_difference'];
 
-	$test = $dt->prepare('UPDATE hiking 
-											SET rando_name = :rando_name, difficulty = :difficulty, distance = :distance, duration = :duration, height_difference = :height_difference
-											WHERE id = :id AND rando_name = :rando_name');
-	$test->execute(array(
-		'id' => $id,
-		'rando_name' => $name,
-		'difficulty' => $difficulty,
-		'distance' => $dist,
-		'duration' => $dur,
-		"height_difference" => $height
-	));
+if(isset($_POST['button'])){
+	$query = "UPDATE hiking SET rando_name = '$rName',difficulty = '$difficulty', distance = '$dist', duration = '$dur', height_difference = '$height' 
+	WHERE id = '$id' AND rando_name = '$rName' ";
+	$dt->exec($query);
+	}
+
 	$send = "Update!";
 
 ?>
-
 <!DOCTYPE html>
 <html>
 <head>
@@ -47,7 +42,7 @@ $height = $_POST['height_difference'];
 	<form action="" method="post">
 		<div>
 			<label for="name">Name</label>
-			<input type="text" name="name" value='<?php echo $rando['rando_name']?>'>
+			<input type="text" name="name" value="<?php echo $rando['rando_name']?>">
 		</div>
 		<div>
 			<label for="difficulty">Difficulté</label>

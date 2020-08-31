@@ -8,7 +8,6 @@ try {
 //
 $res = 'SELECT * FROM hiking';
 $data = $bdd->query($res);
-
 ?>
 
 <!DOCTYPE html>
@@ -38,6 +37,7 @@ $data = $bdd->query($res);
                 <td>'.$row["distance"].'</td>
                 <td>'.$row["duration"].'</td>
                 <td>'.$row["height_difference"].'</td>
+                <td><a href="/rando/delete.php?id='.$row['id'].' "><input type="button" name="delet" value="X"></a></td>
             </tr>';
         }
         $data->closeCursor();
