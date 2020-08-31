@@ -11,19 +11,20 @@
     $dist = $_POST['distance'];
     $dur = $_POST['duration'];
     $height = $_POST['height_difference'];
-    
-    if(isset($name, $difficulty, $dist, $dur, $height)){
-        $dt->prepare("INSERT INTO hiking(id, name, difficulty, distance, duration, height_difference) 
-							VALUES(:name, :difficulty, :distance, :duration, :height_difference)");
-		$dt->exec(array(
-			'name' => $name,
+	
+	if(isset($name, $difficulty, $dist, $dur, $height)){
+		$test = $dt->prepare("INSERT INTO hiking(rando_name, difficulty, distance, duration, height_difference) 
+							VALUES(:rando_name, :difficulty, :distance, :duration, :height_difference)");
+		$test->execute(array(
+			'rando_name' => $name,
 			'difficulty' => $difficulty,
 			'distance' => $dist,
 			'duration' => $dur,
-			'height_difference' => $height
+			"height_difference" => $height
 		));
-        $send = "Envoyé !";
-    }
+		$send = "Envoyé !";
+	}
+        
 ?>
 
 <!DOCTYPE html>

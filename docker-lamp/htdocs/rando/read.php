@@ -33,7 +33,7 @@ $data = $bdd->query($res);
             while($row = $data->fetch()) {
             echo  '
             <tr>
-                <td><a href="/rando/update.php">'.$row->id.''.$row["name"].'</a></td>
+                <td><a href="/rando/update.php?id='.$row['id'].' ">'.htmlentities($row["rando_name"]).'</a></td>
                 <td>'.$row["difficulty"].'</td>
                 <td>'.$row["distance"].'</td>
                 <td>'.$row["duration"].'</td>
