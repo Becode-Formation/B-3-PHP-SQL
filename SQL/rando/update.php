@@ -37,7 +37,7 @@ if(isset($_POST['button'])){
 	<link rel="stylesheet" href="css/basics.css" media="screen" title="no title" charset="utf-8">
 </head>
 <body>
-	<a href="/rando/read.php">Liste des données</a>
+	<a href="./read.php">Liste des données</a>
 	<h1>Ajouter</h1>
 	<form action="" method="post">
 		<div>
@@ -47,11 +47,11 @@ if(isset($_POST['button'])){
 		<div>
 			<label for="difficulty">Difficulté</label>
 			<select name="difficulty">
-				<option value="très facile">Très facile</option>
-				<option value="facile">Facile</option>
-				<option value="moyen">Moyen</option>
-				<option value="difficile">Difficile</option>
-				<option value="très difficile">Très difficile</option>
+				<option <?php if($rando['difficulty'] == "très facile"){ echo "selected ";} ?> value="très facile">Très facile</option>
+				<option <?php if($rando['difficulty'] == "facile"){ echo "selected ";} ?>value="facile">Facile</option>
+				<option <?php if($rando['difficulty'] == "moyen"){ echo "selected ";} ?>value="moyen">Moyen</option>
+				<option <?php if($rando['difficulty'] == "difficile"){ echo "selected ";} ?>value="difficile">Difficile</option>
+				<option <?php if($rando['difficulty'] == "très difficile"){ echo "selected ";} ?>value="très difficile">Très difficile</option>
 			</select>
 		</div>
 		

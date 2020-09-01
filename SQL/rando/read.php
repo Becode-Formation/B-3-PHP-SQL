@@ -32,12 +32,12 @@ $data = $bdd->query($res);
             while($row = $data->fetch()) {
             echo  '
             <tr>
-                <td><a href="/rando/update.php?id='.$row['id'].' ">'.htmlentities($row["rando_name"]).'</a></td>
+                <td><a href="./update.php?id='.$row['id'].' ">'.htmlentities($row["rando_name"]).'</a></td>
                 <td>'.$row["difficulty"].'</td>
                 <td>'.$row["distance"].'</td>
                 <td>'.$row["duration"].'</td>
                 <td>'.$row["height_difference"].'</td>
-                <td><a href="/rando/delete.php?id='.$row['id'].' "><input type="button" name="delet" value="X"></a></td>
+                <td><a href="./delete.php?id='.$row['id'].' "><input type="button" name="delet" value="X"></a></td>
             </tr>';
         }
         $data->closeCursor();
