@@ -1,33 +1,31 @@
 <?php 
-  try {
-    $dt = new PDO('mysql:host=mysqldb;dbname=becode;charset=utf8', 'root', 'root');
-}catch (Exception $e){
-    die('Erreur : ' .$e->getMessage());
-}
-
-try {
-	$res = $dt -> prepare('SELECT * FROM hiking WHERE id = :id');
-	$res ->execute(['id' => $_GET['id']]);
-	$rando = $res->fetch();
-}catch(Exception $err){
-	die("Erreur : " .$err->getMessage());
-}
-
-$id = $rando['id'];
-$rName = $_POST['name'];
-$difficulty = $_POST["difficulty"];
-$dist = $_POST['distance'];
-$dur = $_POST['duration'];
-$height = $_POST['height_difference'];
-
-if(isset($_POST['button'])){
-	$query = "UPDATE hiking SET rando_name = '$rName',difficulty = '$difficulty', distance = '$dist', duration = '$dur', height_difference = '$height' 
+require 'connect.php';
+session_start ();
+if(getLogin() == TRUE){
+	try {
+		$res = $dt -> prepare('SELECT * FROM hiking WHERE id = :id');
+		$res ->execute(['id' => $_GET['id']]);
+		$rando = $res->fetch();
+	}catch(Exception $err){
+		die("Erreur : " .$err->getMessage());
+	}
+	
+	$id = $rando['id'];
+	$rName = $_POST['name'];
+	$difficulty = $_POST["difficulty"];
+	$dist = $_POST['distance'];
+	$dur = $_POST['duration'];
+	$height = $_POST['height_difference'];
+	
+	if(isset($_POST['button'])){
+		$query = "UPDATE hiking SET rando_name = '$rName',difficulty = '$difficulty', distance = '$dist', duration = '$dur', height_difference = '$height' 
 	WHERE id = '$id' AND rando_name = '$rName' ";
 	$dt->exec($query);
 	}
 
 	$send = "Update!";
 
+} 
 ?>
 <!DOCTYPE html>
 <html>

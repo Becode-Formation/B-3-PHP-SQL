@@ -54,7 +54,7 @@ if(isset($newBas, $newHaut, $newVille)){
     $Insert = 'INSERT INTO Météo (ville,haut,bas) VALUES ("'.$newVille.'", '.$newHaut.','.$newBas.')';
      $bdd->exec($Insert);
         echo "Envoyé !";
-        header("Refresh:0");
+        header("location: index.php");
 }
 ?>
 

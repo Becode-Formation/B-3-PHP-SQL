@@ -1,14 +1,14 @@
 <?php
 	require('connect.php'); // Dans fonction ?
-
-    $name = $_POST['name'];
-    $difficulty = $_POST["difficulty"];
-    $dist = $_POST['distance'];
-    $dur = $_POST['duration'];
-    $height = $_POST['height_difference'];
-	
-	if(isset($name, $difficulty, $dist, $dur, $height)){
-		$test = $dt->prepare("INSERT INTO hiking(rando_name, difficulty, distance, duration, height_difference) 
+	if(getLogin() == TRUE){
+		$name = $_POST['name'];
+		$difficulty = $_POST["difficulty"];
+		$dist = $_POST['distance'];
+		$dur = $_POST['duration'];
+		$height = $_POST['height_difference'];
+		
+		if(isset($name, $difficulty, $dist, $dur, $height)){
+			$test = $dt->prepare("INSERT INTO hiking(rando_name, difficulty, distance, duration, height_difference) 
 							VALUES(:rando_name, :difficulty, :distance, :duration, :height_difference)");
 		$test->execute(array(
 			'rando_name' => $name,
@@ -19,6 +19,7 @@
 		));
 		$send = "Envoyé !";
 	}
+} 
         
 ?>
 

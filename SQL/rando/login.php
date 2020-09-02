@@ -1,25 +1,29 @@
 <?php 
+session_start ();
 require 'connect.php';
-
 if(isset($_POST['Connexion'])){
-    if(isset($_POST['login']) && isset($_POST['pwd'])){
+    if(!empty($_POST['login']) and !empty($_POST['pwd'])){
         $login = $_POST['login'];
         $pwd = $_POST['pwd'];
-        $query = $dt->prepare("SELECT * FROM login_user WHERE User=`$login` AND Pwd=`$pwd`");
-        $query->execute();
+        $query = $dt->prepare('SELECT * FROM login_user WHERE User= :user AND Pwd= :pwd ');
+        $query->execute( array ('user' => $login, 'pwd' => $pwd));
         $user = $query->fetchAll();
 
-        echo "Hello" .$user['User'];
-        session_start();
-        $_SESSION['login']= $login;
-        $_SESSION['pwd'] = $pwd;
-
-        header('location : index.php');
+        $count = $query->rowCount();  
+        if($count > 0)  
+        {  
+            session_start ();
+             $_SESSION["login"] = $login;  
+             $_SESSION['pwd'] = $pwd;
+             header("location: read.php");  
+        }  
+        else  
+        {  
+             echo 'Wrong Data';  
+        }  
 
     } else {
         echo "fail";
     }
 }
-    
-    
 ?>

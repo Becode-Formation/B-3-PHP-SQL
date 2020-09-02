@@ -1,13 +1,11 @@
 <?php
 //Connexion a la base
-try {
-    $bdd = new PDO('mysql:host=mysqldb;dbname=becode;charset=utf8', 'root', 'root');
-}catch (Exception $e){
-    dir('Erreur : ' .$e->getMessage());
-}
-//
-$res = 'SELECT * FROM hiking';
-$data = $bdd->query($res);
+require('connect.php'); // Dans fonction ?
+session_start ();
+if(getLogin() == TRUE){
+  $res = 'SELECT * FROM hiking';
+  $data = $dt->query($res);
+} 
 ?>
 
 <!DOCTYPE html>
