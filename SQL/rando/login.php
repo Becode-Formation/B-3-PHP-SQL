@@ -6,7 +6,7 @@ if(isset($_POST['Connexion'])){
         $login = $_POST['login'];
         $pwd = $_POST['pwd'];
         $query = $dt->prepare('SELECT * FROM login_user WHERE User= :user AND Pwd= :pwd ');
-        $query->execute( array ('user' => $login, 'pwd' => $pwd));
+        $query->execute( array ('user' => $login, 'pwd' => sha1($pwd)));
         $user = $query->fetchAll();
 
         $count = $query->rowCount();  
@@ -14,7 +14,7 @@ if(isset($_POST['Connexion'])){
         {  
             session_start ();
              $_SESSION["login"] = $login;  
-             $_SESSION['pwd'] = $pwd;
+             $_SESSION['pwd'] = sha1($pwd);
              header("location: read.php");  
         }  
         else  
